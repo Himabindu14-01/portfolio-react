@@ -15,7 +15,7 @@ function Footer() {
           <a href="https://www.linkedin.com/in/himabindu14/" className="footer__link" target="_blank" rel="noopener noreferrer">
             LinkedIn
           </a>
-          <a href="mailto:himabindu@example.com" className="footer__link">
+          <a href="mailto:velisihima@gmail.com" className="footer__link">
             Email
           </a>
         </nav>

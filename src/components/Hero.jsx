@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import profilePhoto from '../assets/profile.jpg'
 
 const GitHubIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -66,7 +67,7 @@ function Hero() {
               View Projects →
             </a>
             <a
-              href="/resume.pdf"
+              href={`${import.meta.env.BASE_URL}resume.pdf`}
               className="btn btn-outline"
               target="_blank"
               rel="noopener noreferrer"
@@ -97,7 +98,7 @@ function Hero() {
               <LinkedInIcon /> LinkedIn
             </a>
             <a
-              href="mailto:himabindu@example.com"
+              href="mailto:velisihima@gmail.com"
               className="hero__social-link"
               aria-label="Email"
             >
@@ -111,10 +112,17 @@ function Hero() {
           <div className="hero__photo-card">
             {!imgError ? (
               <img
-                src="/profile.jpg"
+                src={profilePhoto}
                 alt="Himabindu — Computer Science student and developer"
                 className="hero__photo"
-                onError={() => setImgError(true)}
+                onError={(e) => {
+                  const fallback = `${import.meta.env.BASE_URL}profile.jpg`
+                  if (e.target.src !== fallback) {
+                    e.target.src = fallback
+                  } else {
+                    setImgError(true)
+                  }
+                }}
               />
             ) : (
               <div className="hero__photo-placeholder" aria-label="Profile photo placeholder">
